@@ -22,3 +22,7 @@ lto = true
 # disable workspace
 [workspace]
 members = [ "adder", "cmd"]
+
+[package.metadata.component.target]
+path = "wit"
+world = "cmd"
