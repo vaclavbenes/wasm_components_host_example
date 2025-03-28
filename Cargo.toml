@@ -1,0 +1,24 @@
+[package]
+name = "example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# For loading and running WebAssembly components
+wasmtime = {   version = "31.0.0",features = ["component-model"]}
+wasmtime-wasi = "31.0.0"
+# For generating Rust bindings from WIT
+wit-component = "0.18.0"
+wit-bindgen = "0.41.0"
+anyhow = "1.0.75"
+
+[profile.release]
+codegen-units = 1
+opt-level = "s"
+debug = false
+strip = true
+lto = true
+
+# disable workspace
+[workspace]
+members = [ "adder", "cmd"]
